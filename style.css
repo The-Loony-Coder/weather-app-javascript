@@ -9,7 +9,7 @@ body {
     justify-content:center ;   
     flex-direction: column;
     align-items: center;
-    background:linear-gradient(rgb(47,150,163),rgb(48,62,143));
+    background:linear-gradient(rgb(126, 210, 221),rgb(48,62,143));
     font-family: sans-serif;
     color: white;
 
@@ -20,15 +20,14 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-.temperature{
     flex-direction: column;
-    
 
 }
+
 .degree-section {
     display: flex;
     align-items: center;
+    
 
 }
 .degree-section span {
@@ -41,8 +40,8 @@ body {
 }
 
 #tempicon {
-    margin: 5rem;
-    width: 20%;
+    /* margin: 5rem; */
+    width: 50%;
     height:auto;
 }
 

@@ -1,7 +1,12 @@
+let timezone = document.querySelector(".location-timezone");
+let degree = document.querySelector(".temperature-degree");
+let tdescription = document.querySelector(".temperature-description");
+let icon = document.getElementById("tempicon");
+
 window.addEventListener("load",()=> {
     let long;
     let lat;
-    let temp_description = document.querySelector(".temperature-degree");
+    
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             //console.log(position);
@@ -15,12 +20,49 @@ window.addEventListener("load",()=> {
             .then(data => 
                 {
                     console.log(data)
-                    const lon = data.coord.lon; //also use destructuring.. const [lon]= data.coord
-                    const lat = data.coord.lat;
-                    let iconchange = document.querySelector("#tempicon")
-                    iconchange.src="/sun.svg"
-                    temp_description.textContent=data.main.temp;
-                    console.log(temp_description)
+                    
+                    
+                    icon.src="assets/animated/cloudy.svg"
+                    degree.textContent=Math.round(data.main.temp-273);//  or you can use data destructuring
+                    const {name} = data;
+                    const {id,main,description} = data.weather[0];
+                    
+                   
+                    const {feels_like} = data.main;
+                    timezone.innerHTML=name;
+                    tdescription.innerHTML = description;// instead of innerhtml we can also use textContent
+                    
+                    if(id<250)
+                    {
+                        storm
+                    }
+                    else if(id<350)
+                    {
+                        drizzlw
+                    }
+                    else if(id < 550)
+                    {
+                        rain
+                    }
+                    else if (id < 650)
+                    {
+                        ''
+                        ''
+                    }
+                    else if (id < 800)
+                    {
+                        atmosphere
+                    }
+                    else if ( id===800)
+                    {
+                        clear
+                    }
+                    else if (id > 800)
+                    {
+                        cloud
+                    }
+                   
+                    
                 })
             
         })
