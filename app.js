@@ -13,16 +13,16 @@ window.addEventListener("load",()=> {
             long = position.coords.longitude;
             lat = position.coords.latitude;
             const proxy = "https://cors-anywhere.herokuapp.com/";
-            const api = `https://api.openweathermap.org/data/2.5/weather?id=1275841&appid=df43c3d2d642ab0aee39e5968bee2e14`;//it(metaweather app) works without proxy also
+            const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=df43c3d2d642ab0aee39e5968bee2e14`;//it(metaweather app) works without proxy also
             //console.log(api);
             fetch(api)
             .then(response => {return response.json();})
             .then(data => 
                 {
-                    console.log(data)
+                    //console.log(data)
                     
                     
-                    icon.src="assets/animated/cloudy.svg"
+                    //icon.src="assets/animated/cloudy.svg"
                     degree.textContent=Math.round(data.main.temp-273);//  or you can use data destructuring
                     const {name} = data;
                     const {id,main,description} = data.weather[0];
@@ -34,32 +34,31 @@ window.addEventListener("load",()=> {
                     
                     if(id<250)
                     {
-                        storm
+                        icon.src="assets/animated/thunder.svg"
                     }
                     else if(id<350)
                     {
-                        drizzlw
+                        icon.src="assets/animated/thunder.svg"
                     }
                     else if(id < 550)
                     {
-                        rain
+                        icon.src="assets/animated/rainy-1.svg"
                     }
                     else if (id < 650)
                     {
-                        ''
-                        ''
+                        icon.src="assets/animated/snow-3.svg"
                     }
                     else if (id < 800)
                     {
-                        atmosphere
+                        icon.src="assets/animated/rainy-4.svg"
                     }
                     else if ( id===800)
                     {
-                        clear
+                        icon.src="assets/animated/clear.svg"
                     }
                     else if (id > 800)
                     {
-                        cloud
+                        icon.src="assets/animated/cloudy.svg"
                     }
                    
                     
