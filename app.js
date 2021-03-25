@@ -19,7 +19,7 @@ window.addEventListener("load",()=> {
             .then(response => {return response.json();})
             .then(data => 
                 {
-                    //console.log(data)
+                    console.log(data)
                     
                     
                     //icon.src="assets/animated/cloudy.svg"
@@ -54,7 +54,7 @@ window.addEventListener("load",()=> {
                     }
                     else if ( id===800)
                     {
-                        icon.src="assets/animated/clear.svg"
+                        icon.src="assets/animated/day.svg"
                     }
                     else if (id > 800)
                     {
