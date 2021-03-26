@@ -19,7 +19,7 @@ window.addEventListener("load",()=> {
             .then(response => {return response.json();})
             .then(data => 
                 {
-                    console.log(data)
+                    //console.log(data)
                     
                     
                     //icon.src="assets/animated/cloudy.svg"
